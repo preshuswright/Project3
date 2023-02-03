@@ -1,0 +1,55 @@
+/* Create table about the people and what they do here */
+CREATE TABLE singers (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    stage_name TEXT,
+    age INTEGER);
+    
+INSERT INTO singers (stage_name, age) VALUES ("Beyonce", "41");
+INSERT INTO singers (stage_name, age) VALUES ("SZA", "33");
+INSERT INTO singers (stage_name, age) VALUES ("Summer Walker", "26");
+INSERT INTO singers (stage_name, age) VALUES ("H.E.R", "25");
+INSERT INTO singers (stage_name, age) VALUES ("Jhene Aiko", "34");
+INSERT INTO singers (stage_name, age) VALUES ("Kehlani", "27");
+
+
+CREATE table songs (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    person_id INTEGER,
+    name TEXT);
+    
+INSERT INTO songs (person_id,name) VALUES (4, "Halo");
+INSERT INTO songs (person_id, name) VALUES (4, "Cuff_It");
+INSERT INTO songs (person_id, name) VALUES (4, "Love_Galore");
+INSERT INTO songs (person_id, name) VALUES (4, "Blind");
+INSERT INTO songs (person_id, name) VALUES (3, "Toxic");
+INSERT INTO songs (person_id, name) VALUES (3, "Playing_Games");
+INSERT INTO songs (person_id, name) VALUES (3, "Best_Part");
+INSERT INTO songs (person_id, name) VALUES (2, "Slide");
+INSERT INTO songs (person_id, name) VALUES (2, "Triggered");
+INSERT INTO songs (person_id, name) VALUES (2, "Stranger");
+INSERT INTO songs (person_id, name) VALUES (1, "Toxic");
+INSERT INTO songs (person_id, name) VALUES (1, "Morning");
+
+CREATE table music (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    person1_id INTEGER,
+    person2_id INTEGER);
+    
+INSERT INTO music (person1_id, person2_id)
+    VALUES (1, 3);
+INSERT INTO music (person1_id, person2_id)
+    VALUES (2, 4);
+
+    
+SELECT singers.stage_name, songs.name
+FROM singers 
+JOIN songs 
+ON singers.id = songs.person_id;
+
+
+SELECT a.stage_name, b.stage_name
+FROM music
+JOIN singers a
+ON a. Id = music.person1_id
+JOIN singers b
+ON b.Id = music.person2_id;
